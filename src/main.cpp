@@ -52,7 +52,7 @@ int dispositivos = 0;
   float latitude, longitude;
   
 TinyGPS gps;
-SoftwareSerial serialgps(D6, D5);//   (RX,TX)
+SoftwareSerial serialgps(12,14);//   (RX,TX)
 static const unsigned char PROGMEM logomemorylane[] = {
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
@@ -160,10 +160,10 @@ void setup()
   Serial.begin(115200);
   Serial.println("SSD1306 128x64 OLED TEST");
   ///////////////////////////////////////////////////////                               INICIAR GPS                          //////////////////////////////////////
- 
+ delay(200);
   serialgps.begin(9600);
   
-
+delay(200);
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3c )) 
   {   // SCREEN_ADDRESS es el nombre que detecta la placa en I2C
     Serial.println(F("SSD1306 allocation failed"));
